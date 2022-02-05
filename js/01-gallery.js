@@ -2,8 +2,8 @@ import { galleryItems } from './gallery-items.js';
 
 const gallery = document.querySelector('.gallery');
    
-const markup = galleryItems.map(({ description, original, preview }) => `<div class="gallery__item">
-   <a class="gallery__link" href='${original}'>
+const markup = galleryItems.map(({ description, original, preview }) => 
+`<div class="gallery__item"><a class="gallery__link" href='${original}'>
    <img class="gallery__image" src='${preview}' data-source='${original}'
    alt='${description}'/></a></div>`)
    .join('');
@@ -13,9 +13,6 @@ gallery.addEventListener(`click`, onClick);
 
 function onClick(event) {
   event.preventDefault();
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
   galleryItems.map((item) => {
     if (item.original === event.target.dataset.source) {
       const instance = basicLightbox.create(` 
@@ -25,4 +22,4 @@ function onClick(event) {
     }
    }
   )   
- }
+}

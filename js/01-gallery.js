@@ -13,13 +13,8 @@ gallery.addEventListener(`click`, onClick);
 
 function onClick(event) {
   event.preventDefault();
-  galleryItems.map((item) => {
-    if (item.original === event.target.dataset.source) {
       const instance = basicLightbox.create(` 
-        <img src=${item.original} width="800" height="600">
+        <img src=${event.target.dataset.source} width="800" height="600">
     `);
-    instance.show();
-    }
-   }
-  )   
+    instance.show(); 
 }
